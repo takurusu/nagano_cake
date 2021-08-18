@@ -38,9 +38,9 @@ class DeviseCreateCustomers < ActiveRecord::Migration[5.2]
       t.string :postal_code, null: false
       t.string :adress, null: false
       t.string :telephone_number, null: false
-      t.boolean :is_active, null: false
-      t.datetime :created_at, null: false
-      t.datetime :updated_at, null: false
+      t.boolean :is_active, null: false, default: TRUE
+      t.datetime :created_at, null: false, default: -> { 'NOW()' }
+      t.datetime :updated_at, null: false, default: -> { 'NOW()' }
 
       t.timestamps null: false
     end

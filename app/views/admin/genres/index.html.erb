@@ -1,2 +1,25 @@
-<h2>ジャンル管理画面</h2>
-<%= link_to "編集する", edit_admin_genre_path(@genre) %>
+<div class="container px-5 px-sm-5">
+  <div class="row">
+    <h2>ジャンル管理画面</h2>
+    <div class="genres-index">
+      <table class="table table-stripped">
+        <h2>ジャンル一覧・追加</h2>
+          <div class="create-genre">
+          <%= form_with model: @genre, local:true do |f| %>
+            <p>ジャンル名</p>
+            <%= f.text_field :name %>
+            <%= f.submit '新規登録' %>
+          <% end %>
+          </div>
+          <tbody>
+            <% @genres.each do |genre| %>
+              <tr>
+                <td><%= genre.name %></td>
+                <td><%= link_to "編集する", edit_admin_genre_path(genre.id) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+      </table>
+    </div>
+  </div>
+</div>

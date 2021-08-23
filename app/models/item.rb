@@ -1,3 +1,3 @@
 class Item < ApplicationRecord
-  belongs_to :gen
+  belongs_to :genre
 end

@@ -1,6 +1,7 @@
 class Admin::ItemsController < ApplicationController
   def index
     @items = Item.all
+    @genre = Genre.find(params[:id])
   end
 
   def new

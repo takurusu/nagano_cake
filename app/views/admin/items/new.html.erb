@@ -9,7 +9,7 @@
         <p>商品説明</p>
         <%= f.text_area :introduction %>
         <p>ジャンル</p>
-        <%= f.collection_select(:genre_id, @ganres, :id, :name) %>
+        <%= f.collection_select :genre_id, @genres, :id, :name, {:include_blank => true} %>
         <p>税抜価格</p>
         <p>販売ステータス</p>
         <p><%= f.submit '新規登録', class:"btn btn-success" %></p>

@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="title">
+      <p><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</p>
+    </div>
+    <div class="customer-contents">
+      <p>会員ID<%= @customer.id %></p>
+    <%= form_with model: @customer, local:true do |f| %>
+      <p>氏名<%= f.text_field :last_name %><%= f.text_field :first_name %></p>
+      <p>フリガナ<%= f.text_field :last_name_kana %><%= f.text_field :first_name_kana %></p>
+      <p>郵便番号<%= f.text_field :postal_code %></p>
+      <p>住所<%= f.text_field :adress %></p>
+      <p>電話番号<%= f.text_field :telephone_number %></p>
+      <p>メールアドレス<%= f.text_field :email %></p>
+      <p>会員ステータス<%= f.text_field :is_active %></p>
+      <p><%= f.submit '変更を保存', class:"btn btn-success" %></p>
+    <% end %>
+    </div>
+  </div>
+</div>

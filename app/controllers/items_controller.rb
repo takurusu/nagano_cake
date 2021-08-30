@@ -1,9 +1,11 @@
-class HomesController < ApplicationController
-  def top
+class ItemsController < ApplicationController
+
+  def index
     @items = Item.all
   end
 
-  def about
+  def show
+    @item = Item.find(params[:id])
   end
 
   private

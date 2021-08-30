@@ -10,6 +10,13 @@
       </div>
       <div class="items">
         <h2>新着商品</h2>
+        <div class="new-items">
+          <% @items.each do |item| %>
+            <%= item.name %>
+            <%= item.price %>
+          <% end %>
+          <%= link_to "すべての商品を見る", items_path %>
+        </div>
       </div>
   </div>
 </div>

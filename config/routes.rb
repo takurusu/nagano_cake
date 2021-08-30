@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'about' => 'homes#about'
   resources :customers
+  resources :items, only: [:index, :show]
+  resources :cart_items, only: [:index, :update, :create]
 
   devise_for :admins, path: :admin, views: {
     :registrations => 'admins/registrations',
@@ -17,6 +19,7 @@ Rails.application.routes.draw do
    resources :genres, only: [:index, :new, :create, :edit, :update]
    resources :items, only: [:index, :new, :create, :show, :edit, :update]
    resources :customers, only: [:index, :show, :edit, :update]
+   resources :orders
   end
 
 end

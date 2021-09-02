@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :customers
   resources :items, only: [:index, :show]
   resources :cart_items, only: [:index, :update, :create]
+  delete 'cart_items/:id' => "cart_items#one"
   resources :orders, only: [:new, :create, :index, :show]
 
   devise_for :admins, path: :admin, views: {

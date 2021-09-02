@@ -16,7 +16,7 @@
               <p>数量</p>
               <%= cart_item.amount %>
               <p>小計</p>
-              <p></p>
+              <%= link_to "削除する", cart_item_path(cart_item), method: :delete, class:"btn btn-sm btn-danger" %>
             <% end %>
             </td>
           </tr>

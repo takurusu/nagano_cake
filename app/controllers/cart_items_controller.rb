@@ -11,6 +11,9 @@ class CartItemsController < ApplicationController
   end
 
   def one
+    @cart_item = CartItem.find(params[:id])
+    @cart_item.destroy
+    redirect_to cart_items_path
   end
 
   def all
@@ -28,4 +31,7 @@ class CartItemsController < ApplicationController
       params.require(:cart_item).permit(:item_id, :customer_id, :amount)
     end
 
-end
+    def item_params
+      params.require(:item).permit(:image_id, :name, :price)
+    end
+ end

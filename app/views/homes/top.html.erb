@@ -1,7 +1,12 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
     <div class="col-md-3">
-      <p>ジャンル検索</p>
+      <div class="genre-index">
+        <p>ジャンル検索</p>
+        <% @genres.each do |genre| %>
+          <p><%= genre.name %></p>
+        <% end %>
+      </div>
     </div>
     <div class="col-md-8 offset-md-1">
       <div class="introduction">
@@ -9,13 +14,18 @@
         <br>会員でない方も商品の閲覧はできますが、購入には会員登録が必要になります。</p>
       </div>
       <div class="items">
-        <h2>新着商品</h2>
+        <h4>新着商品</h4>
         <div class="new-items">
           <% @items.each do |item| %>
-            <%= item.name %>
-            <%= item.price %>
+            <p><%= attachment_image_tag item, :image_id, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %></p>
+            <p><%= link_to item_path(item) do %>
+                <%= item.name %>
+               <% end %></p>
+            <p><%= item.price %></p>
           <% end %>
-          <%= link_to "すべての商品を見る", items_path %>
+        </div>
+        <div class="link">
+          <%= link_to "全ての商品を見る>", items_path %>
         </div>
       </div>
   </div>

@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   resources :cart_items, only: [:index, :update, :create]
   delete 'cart_items/:id' => "cart_items#one"
   resources :orders, only: [:new, :create, :index, :show]
+  post 'orders/confirm' => "orders#confirm"
+  get 'orders/complete' => "orders#complete"
 
   devise_for :admins, path: :admin, views: {
     :registrations => 'admins/registrations',

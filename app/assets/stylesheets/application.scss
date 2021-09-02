@@ -16,3 +16,49 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+/*top page*/
+
+.genre-index {
+  border: solid 1px #000;
+  margin-top: 50px;
+  padding-bottom: 50px;
+}
+
+.genre-index > .index-title {
+  text-align: center;
+  froat: center;
+  border-bottom: solid 1px #000;
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.genre-index > p {
+  padding-left: 10px;
+  padding-top: 10px;
+  font-size: 12px;
+}
+
+.introduction {
+  border: solid 1px #000;
+  margin-top: 50px;
+  font-size: 15px;
+}
+
+.introduction > p {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.items {
+  margin-top: 10px;
+}
+
+.new-items {
+  display: flex;
+}
+
+.new-items > p {
+
+}

@@ -3,10 +3,10 @@
     <%= render 'homes/list', genres: @genres %>
     <div class="col-md-8 offset-md-1">
       <div class="item">
-        <%= attachment_image_tag @item, :image_id, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %>
+        <p><%= attachment_image_tag @item, :image_id, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %></p>
         <p><%= @item.name %></p>
         <p><%= @item.introduction %></p>
-        <p><%= @item.price %></p>
+        <p>¥<%= (@item.price*1.08).to_i %>(税込)</p>
       <%= form_with model: @cart_item, url: cart_items_path, local: true do |f| %>
         <%= f.label :amount, "個数選択" %>
         <%= f.select :amount, [1,2,3,4,5,6,7,8,9,10] %>

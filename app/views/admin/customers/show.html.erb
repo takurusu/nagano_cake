@@ -1,21 +1,43 @@
 <div class="container">
   <div class="row">
+    <div class="mypage">
     <div class="title">
-      <p><%= @customer.last_name %><%= @customer.first_name %>さんの会員紹介</p>
+      <p>マイページ</p>
     </div>
-    <div class="customer-contents">
-      <p>会員ID<%= @customer.id %></p>
-      <p>氏名<%= @customer.last_name %><%= @customer.first_name %></p>
-      <p>フリガナ<%= @customer.last_name_kana %><%= @customer.first_name_kana %></p>
-      <p>郵便番号<%= @customer.postal_code %></p>
-      <p>住所<%= @customer.adress %></p>
-      <p>電話番号<%= @customer.telephone_number %></p>
-      <p>メールアドレス<%= @customer.email %></p>
-      <p>会員ステータス<%= @customer.is_active %></p>
-    </div>
-    <div class="link">
-      <%= link_to "編集する", edit_admin_customer_path, class:"btn btn-success" %>
-      <%= link_to "注文履歴一覧を見る", root_path, class:"btn btn-success" %>
+      <table class="row">
+        <tbody>
+        <p>登報　<%= link_to "編集する", edit_customer_path, class:"btn btn-sm btn-success" %></p>
+          <tr>
+            <th>氏名</th>
+            <td><%= @customer.last_name %><%= @customer.first_name %></td>
+          </tr>
+          <tr>
+            <th>カナ</th>
+            <td><%= @customer.last_name_kana %><%= @customer.first_name_kana %></td>
+          </tr>
+          <tr>
+            <th>郵便番号</th>
+            <td><%= @customer.postal_code %></td>
+          </tr>
+          <tr>
+            <th>住所</th>
+            <td><%= @customer.adress %></td>
+          </tr>
+          <tr>
+            <th>電話番号</th>
+            <td><%= @customer.telephone_number %></td>
+          </tr>
+          <tr>
+            <th>メールアドレス</th>
+            <td><%= @customer.email %></td>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="mypage-link">
+        <p>配送先 一覧を見る</p>
+        <p>注文履歴　一覧を見る</p>
+      </div>
     </div>
   </div>
 </div>

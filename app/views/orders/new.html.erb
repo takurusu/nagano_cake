@@ -1,16 +1,26 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8">
-      <div class="title">
-        <p>注文情報入力画面</p>
-      </div>
-　　　<div class="order-contents">
-　　　  <p>支払方法</p>
-　　　  <p>お届け先</p>
-　　　</div>
-　　　<div class="link">
-　　　  <%= link_to "確認画面へ進む", orders_confirm_path(@order), class:"btn btn-sm btn-primary" %>
-　　　</div>
+      <div class="orders-new">
+        <div class="title">
+          <p>注文情報入力画面</p>
+        </div>
+　　  　<div class="orders-form">
+　　  　  <%= form_with model: @order, url:new_order_path, local:true do |f| %>
+　　  　  <div class="payment-method">
+　　  　    <p>支払方法</p>
+　　  　  　  <p><%= f.radio_button :payment_method, :credit_card, checked: "checked" %>クレジットカード</p>
+　　  　  　　<p><%= f.radio_button :payment_method, :transfer, checked: "checked" %>銀行振込</p>
+　　  　  </div>
+　　  　  <div class="address">
+　　  　    <p>お届け先</p>
+　　  　  </div>
+　　  　</div>
+　　  　<div class="link">
+　　　    <%= link_to "確認画面へ進む", orders_confirm_path(@order), class:"btn btn-sm btn-primary" %>
+　　　    <% end %>
+　　  　</div>
+　　  </div>
     </div>
   </div>
 </div>

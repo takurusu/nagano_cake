@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :show]
   resources :cart_items, only: [:index, :update, :create]
   delete 'cart_items/:id' => "cart_items#one"
+  delete 'cart_items' => "cart_items#all"
   resources :orders, only: [:new, :create, :index, :show]
   post 'orders/confirm' => "orders#confirm"
   get 'orders/complete' => "orders#complete"

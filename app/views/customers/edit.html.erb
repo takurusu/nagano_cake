@@ -1,29 +1,44 @@
 <div class="container">
   <div class="row">
+    <div class="mypage">
     <div class="title">
-      <h2>マイページ</h2>
-      <table class="table table-stripped">
+      <p>会員情報編集</p>
+    </div>
+      <table class="row">
+        <%= form_with model: @customer, url:customer_path, local:true do |f| %>
         <tbody>
           <tr>
-            <td>
-              <p>氏名</p>
-              <%= @customer.last_name %><%= @customer.first_name %>
-              <p>カナ</p>
-              <%= @customer.last_name_kana %><%= @customer.first_name_kana %>
-              <p>郵便番号</p>
-              <%= @customer.postal_code %>
-              <p>住所</p>
-              <%= @customer.adress %>
-              <p>電話番号</p>
-              <%= @customer.telephone_number %>
-              <p>メールアドレス</p>
-              <%= @customer.email %>
+            <th>氏名</th>
+            <td><%= f.text_field :last_name %><%= f.text_field :first_name %></td>
+          </tr>
+          <tr>
+            <th>カナ</th>
+            <td><%= f.text_field :last_name_kana %><%= f.text_field :first_name_kana %></td>
+          </tr>
+          <tr>
+            <th>郵便番号</th>
+            <td><%= f.text_field :postal_code %></td>
+          </tr>
+          <tr>
+            <th>住所</th>
+            <td><%= f.text_field :adress %></td>
+          </tr>
+          <tr>
+            <th>電話番号</th>
+            <td><%= f.text_field :telephone_number %></td>
+          </tr>
+          <tr>
+            <th>メールアドレス</th>
+            <td><%= f.text_field :email %></td>
             </td>
           </tr>
         </tbody>
       </table>
-      <p>配送先</p>
-      <p>注文履歴</p>
+      <div class="mypage-link">
+        <p><%= f.submit "編集内容を保存", class:"btn btn-sm btn-success" %></p>
+        <p>退会する</p>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

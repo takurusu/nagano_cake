@@ -1,9 +1,14 @@
 <div class="container">
   <div class="row">
     <div class="cart-item-index">
-    <div class="title">
-      <p>ショッピングカート</p>
-    </div>
+      <div class="cart-item-title">
+        <div class="title">
+          <p>ショッピングカート</p>
+        </div>
+        <div class="all-destroy">
+          <p><%= link_to "カートを空にする", cart_items_path(@cart_items), method: :delete, class:"btn btn-sm btn-danger" %></p>
+        </div>
+      </div>
     <div class="cart-item-index-contents">
       <table class="table table-stripped">
         <tr>

@@ -10,7 +10,7 @@ class CustomersController < ApplicationController
 
   def update
     @customer = Customer.find(params[:id])
-    @customer = Customer.update
+    @customer = Customer.update(customer_params)
     redirect_to customer_path
   end
 

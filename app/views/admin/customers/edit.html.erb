@@ -13,7 +13,7 @@
       <p>電話番号<%= f.text_field :telephone_number %></p>
       <p>メールアドレス<%= f.text_field :email %></p>
       <p>会員ステータス<%= f.text_field :is_active %></p>
-      <p><%= f.submit '変更を保存', class:"btn btn-success" %></p>
+      <p><%= f.submit '変更を保存', class:"btn btn-success", data: {"turbolinks" => false} %></p>
     <% end %>
     </div>
   </div>

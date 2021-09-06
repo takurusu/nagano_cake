@@ -74,3 +74,5 @@ gem "better_errors"
 gem "binding_of_caller"
 
 gem "enum_help"
+
+gem 'pry-byebug', group: :development

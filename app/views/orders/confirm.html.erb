@@ -21,8 +21,11 @@
           </tr>
         </tbody>
       </table>
+      <p>支払方法<%= @order.payment_method %></p>
+      <p>お届け先<%= @address.postal_code %><%= @address.address %></p>
+      <p><%= @address.name %></p>
 　　　<div class="link">
-　　　  <%= link_to "注文を確定する", orders_confirm_path(@order), class:"btn btn-sm btn-success" %>
+　　　  <%= link_to "注文を確定する", orders_confirm_path(@order), method: :post, class:"btn btn-sm btn-success" %>
 　　　</div>
     </div>
   </div>

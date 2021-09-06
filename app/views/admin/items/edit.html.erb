@@ -4,6 +4,7 @@
       <h2>商品編集</h2>
         <%= form_with model: @item, url:admin_item_path, local:true do |f| %>
         <p>商品画像</p>
+        <%= f.attachment_field :image %>
         <p>商品名</p>
         <%= f.text_field :name %>
         <p>商品説明</p>

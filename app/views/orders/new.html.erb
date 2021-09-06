@@ -6,18 +6,38 @@
           <p>注文情報入力画面</p>
         </div>
 　　  　<div class="orders-form">
-　　  　  <%= form_with model: @order, url:new_order_path, local:true do |f| %>
+　　  　  <%= form_with model: @order, url:orders_confirm_path, local:true do |f| %>
 　　  　  <div class="payment-method">
 　　  　    <p>支払方法</p>
-　　  　  　  <p><%= f.radio_button :payment_method, :credit_card, checked: "checked" %>クレジットカード</p>
-　　  　  　　<p><%= f.radio_button :payment_method, :transfer, checked: "checked" %>銀行振込</p>
+　　  　  　  <p>
+　　  　  　    <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
+                <%= f.label :payment_method, Order.payment_methods_i18n[:credit_card] %>
+　　　　　　　</p>
+　　　　　　　<p>
+　　　　　　　  <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
+                <%= f.label :payment_method, Order.payment_methods_i18n[:transfer] %>
+　　　　　　　</p>
 　　  　  </div>
 　　  　  <div class="address">
 　　  　    <p>お届け先</p>
+　　  　      <div>
+　　  　        <p><%= f.radio_button :adress_id, @customer.adress %>ご自身の住所</p>
+　　  　        <p><%= @customer.adress %></p>
+　　  　      </div>
+　　  　      <div>
+　　  　        <p><%= f.radio_button :adress_id, @customer.adress %>登録住所から選択</p>
+　　  　        <p><%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :full_address) %></p>
+　　       　 </div>
+　　  　      <div>
+　　  　        <p><%= f.radio_button :address_id, Address.new %>新しいお届け先</p>
+　　  　        <p>郵便番号<%= f.text_field :postal_code %></p>
+　　  　        <p>住所<%= f.text_field :address %></p>
+　　  　        <p>宛名<%= f.text_field :name %></p>
+　　  　      </div>
 　　  　  </div>
 　　  　</div>
 　　  　<div class="link">
-　　　    <%= link_to "確認画面へ進む", orders_confirm_path(@order), class:"btn btn-sm btn-primary" %>
+　　　    <%= f.submit "確認画面へ進む", class:"btn btn-sm btn-primary" %>
 　　　    <% end %>
 　　  　</div>
 　　  </div>

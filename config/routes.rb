@@ -6,13 +6,14 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'about' => 'homes#about'
   resources :customers
-  resources :items, only: [:index, :show]
+  resources :items, only: [:new, :index, :show]
   resources :cart_items, only: [:index, :update, :create]
   delete 'cart_items/:id' => "cart_items#one"
   delete 'cart_items' => "cart_items#all"
   resources :orders, only: [:new, :create, :index, :show]
   post 'orders/confirm' => "orders#confirm"
   get 'orders/complete' => "orders#complete"
+  resources :addresses, only: [:index, :edit, :create, :update, :destroy]
 
   devise_for :admins, path: :admin, views: {
     :registrations => 'admins/registrations',

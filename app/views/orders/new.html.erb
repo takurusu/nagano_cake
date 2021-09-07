@@ -21,24 +21,22 @@
 　　  　  <div class="address">
 　　  　    <p>お届け先</p>
 　　  　      <div>
-　　  　        <p><%= f.radio_button :adress_id, @customer.adress %>ご自身の住所</p>
-　　  　        <p><%= @customer.adress %></p>
+　　  　        <p><%= f.radio_button :address_id, current_customer.adress %>ご自身の住所</p>
+　　  　        <p><%= @customer.full_address %></p>
 　　  　      </div>
 　　  　      <div>
-　　  　        <p><%= f.radio_button :adress_id, @customer.adress %>登録住所から選択</p>
-　　  　        <p><%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :full_address) %></p>
+　　  　        <p><%= f.radio_button :address_id, @customer.adress %>登録住所から選択</p>
+　　  　        <p><%= f.select :address_id, options_from_collection_for_select(Address.all, :id, ) %></p>
 　　       　 </div>
 　　  　      <div>
 　　  　        <p><%= f.radio_button :address_id, Address.new %>新しいお届け先</p>
 　　  　        <p>郵便番号<%= f.text_field :postal_code %></p>
 　　  　        <p>住所<%= f.text_field :address %></p>
 　　  　        <p>宛名<%= f.text_field :name %></p>
+　　  　        <p><%= f.submit "確認画面へ進む", class:"btn btn-sm btn-primary" %></p>
+　　  　        <% end %>
 　　  　      </div>
 　　  　  </div>
-　　  　</div>
-　　  　<div class="link">
-　　　    <%= f.submit "確認画面へ進む", class:"btn btn-sm btn-primary" %>
-　　　    <% end %>
 　　  　</div>
 　　  </div>
     </div>

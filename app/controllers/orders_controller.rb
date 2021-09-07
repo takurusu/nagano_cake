@@ -6,9 +6,10 @@ class OrdersController < ApplicationController
   end
 
   def confirm
+    binding.pry
     @order = Order.new(order_params)
     @cart_items = CartItem.all
-    #@cart_items = CartItem.find_by(name: params[:session][:name].downcase)
+
   end
 
   def complete

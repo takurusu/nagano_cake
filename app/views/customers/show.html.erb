@@ -4,9 +4,9 @@
     <div class="title">
       <p>マイページ</p>
     </div>
-      <table class="row">
+      <table border="1" width="600" height="300">
         <tbody>
-        <p>登録情報　<%= link_to "編集する", edit_customer_path(@customer.id), class: "btn btn-sm btn-success", data: {"turbolinks"=>false} %></p>
+        <div class="sub-title">登録情報&emsp;<%= link_to "編集する", edit_customer_path(@customer.id), class:"btn btn-sm btn-success", data: {"turbolinks"=>false} %></div>
           <tr>
             <th>氏名</th>
             <td><%= @customer.last_name %><%= @customer.first_name %></td>
@@ -21,7 +21,7 @@
           </tr>
           <tr>
             <th>住所</th>
-            <td><%= @customer.adress %></td>
+            <td><%= @customer.address %></td>
           </tr>
           <tr>
             <th>電話番号</th>
@@ -35,8 +35,8 @@
         </tbody>
       </table>
       <div class="mypage-link">
-        <p>配送先    <%= link_to "一覧を見る", addresses_path, class:"btn btn-sm btn-primary" %></p>
-        <p>注文履歴　一覧を見る</p>
+        <p>配送先&emsp;&emsp;<%= link_to "一覧を見る", addresses_path, class:"btn btn-sm btn-primary" %></p>
+        <p>注文履歴&emsp;<%= link_to "一覧を見る", root_path, class:"btn btn-sm btn-primary" %></p>
       </div>
     </div>
   </div>

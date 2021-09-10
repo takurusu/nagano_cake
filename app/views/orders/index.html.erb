@@ -2,7 +2,7 @@
   <div class="row">
     <div class="orders-index">
       <div class="title">注文履歴一覧</div>
-      <table border="1" width="800" height="auto" class="table-table-stripped">
+      <table border="1" class="table table-stripped">
         <tr>
           <th>注文日</th>
           <th>配送先</th>
@@ -11,14 +11,20 @@
           <th>ステータス</th>
           <th>注文詳細</th>
         </tr>
+        <% @orders.each do |order| %>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>
+            <%= link_to order_path(order), class: 'hoge' do %>
+              <%= order.created_at %>
+            <% end %>
+          </td>
+          <td><%= order.full_address %></td>
+          <td><%= order.customer_id %></td>
+          <td><%= order.total_payment %></td>
+          <td><%= order.status %></td>
           <td><%= link_to "表示する", root_path, class:"btn btn-sm btn-primary" %></td>
         </tr>
+        <% end %>
       </table>
     </div>
   </div>

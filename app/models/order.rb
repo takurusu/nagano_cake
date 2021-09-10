@@ -4,4 +4,8 @@ class Order < ApplicationRecord
   def postage
     800
   end
+
+  def full_address
+    '〒' + postal_code + ' ' + address
+  end
 end

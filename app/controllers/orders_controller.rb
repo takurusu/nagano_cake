@@ -16,6 +16,7 @@ class OrdersController < ApplicationController
       if params[:order][:address_option] == "0"
          @order.postal_code = current_customer.postal_code
          @order.address = current_customer.address
+         @order.name = current_customer.full_name
       elsif params[:order][:address_option] == "1"
             @sta = params[:order][:address_id].to_i
             @address = Address.find(@sta)
@@ -39,15 +40,17 @@ class OrdersController < ApplicationController
   end
 
   def index
+    @orders = Order.all
   end
 
   def show
+    @order = Order.find(params[:id])
   end
 
   private
 
     def order_params
-      params.require(:order).permit(:customer_id, :postal_code, :address, :address_id, :name, :postage, :total_payment, :payment_method, :status)
+      params.require(:order).permit(:customer_id, :postal_code, :address, :name, :postage, :total_payment, :payment_method, :status, :created_at, :updated_at)
     end
 
     def cart_item_params

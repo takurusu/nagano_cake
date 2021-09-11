@@ -7,6 +7,7 @@ class OrdersController < ApplicationController
 
   def confirm
     @order = Order.new
+    @order_item = OrderItem.new
     @cart_items = current_customer.cart_items.all
     @total_price = 0
     @cart_items.each do |cart_item|
@@ -33,9 +34,19 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @cart_items = current_customer.cart_items
+
     @order = Order.new(order_params)
     @order.save
+    @cart_items = current_customer.cart_items
+    @cart_items.each do |cart_item|
+    @order_item = OrderItem.new
+    @order_item.item_id = cart_item.item_id
+    @order_item.order_id = @order.id
+    @order_item.unit_price = cart_item.item.with_tax_price
+    @order_item.amount = cart_item.amount
+    @order_item.save
+    end
+    @cart_items.destroy_all
     redirect_to orders_complete_path
   end
 
@@ -45,12 +56,13 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @order_items = @order.order_items.all
   end
 
   private
 
     def order_params
-      params.require(:order).permit(:customer_id, :postal_code, :address, :name, :postage, :total_payment, :payment_method, :status, :created_at, :updated_at)
+      params.require(:order).permit(:customer_id, :postal_code, :address, :name, :postage, :total_payment, :payment_method, :status, order_items_attributes: [:item_id, :amount, :unit_price, :id])
     end
 
     def cart_item_params
@@ -61,7 +73,7 @@ class OrdersController < ApplicationController
       params.require(:item).permit(:image_id, :name, :price)
     end
 
-    def order_items_params
-      params.require(:item).permit(:order_id, :item_id, :amount, :unit_price)
+    def order_item_params
+      params.require(:order_item).permit(:order_id, :item_id, :amount, :unit_price)
     end
 end

@@ -8,4 +8,6 @@ class Order < ApplicationRecord
   def full_address
     '〒' + postal_code + ' ' + address
   end
+
+  accepts_nested_attributes_for :order_items, allow_destroy: true
 end

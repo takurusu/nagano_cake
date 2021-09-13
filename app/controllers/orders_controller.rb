@@ -26,7 +26,8 @@ class OrdersController < ApplicationController
             @order.name = @address.name
       elsif params[:order][:address_option] == "2"
             @order.postal_code = params[:order][:postal_code]
-            @order.address = params[:order][:order_address]
+            @order.address = params[:order][:address]
+            @order.name = params[:order][:name]
       end
   end
 

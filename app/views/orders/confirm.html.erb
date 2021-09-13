@@ -36,8 +36,8 @@
             <td><%= @total_price+@order.postage %></td>
           </tr>
       </table>
-      <p>支払方法&emsp;<%= @order.payment_method %></p>
-      <p>お届け先&emsp;<%= @order.postal_code %><%= @order.name %></p>
+      <p>支払方法&emsp;<%= @order.payment_method_i18n %></p>
+      <p>お届け先&emsp;〒<%= @order.postal_code %>&emsp;<%= @order.address %>&emsp;<%= @order.name %></p>
       <%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
 　　　  <%= f.hidden_field :payment_method, :value => @order.payment_method %>
 　　　  <%= f.hidden_field :address, :value => @order.address %>

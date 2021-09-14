@@ -1,24 +1,34 @@
-<div class="container px-5 px-sm-5">
+<div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-      <h2>商品一覧</h2>
-      <%= link_to '商品新規登録', new_admin_item_path %>
-      <table class="table table-stripped">
-        <thread>
-          <th>商品ID</th>
-          <th>商品名</th>
-          <th>税抜価格</th>
-          <th>ジャンル</th>
-          <th>ステータス</th>
-        </thread>
-        <tbody>
-          <% @items.each do |item| %>
-            <tr>
-              <td><%= item.id %></td>
-              <td><%= link_to item.name, admin_item_path(item.id) %></td>
-              <td><%= item.price %></td>
-              <td><%= item.genre.name %></td>
-              <td><%= item.is_active %></td>
-            </tr>
-          <% end %>
-        </tbody>
+    <div class="col-md-12">
+      <div class="admin-items-index">
+        <div class="title">
+          <p>
+            商品一覧
+          　<%= link_to '⊕', new_admin_item_path, class:"btn btn-sm btn-default" %>
+          </p>
+        </div>
+        <table class="table table-stripped">
+          <thread>
+            <th>商品ID</th>
+            <th>商品名</th>
+            <th>税抜価格</th>
+            <th>ジャンル</th>
+            <th>ステータス</th>
+          </thread>
+          <tbody>
+            <% @items.each do |item| %>
+              <tr>
+                <td><%= item.id %></td>
+                <td><%= link_to item.name, admin_item_path(item.id) %></td>
+                <td><%= converting_to_jpy(item.price) %></td>
+                <td><%= item.genre.name %></td>
+                <td><%= item.is_active %></td>
+              </tr>
+            <% end %>
+          </tbody>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="paging"><%= paginate @items %></div>

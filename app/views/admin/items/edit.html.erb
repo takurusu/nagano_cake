@@ -1,23 +1,47 @@
-<div class="container px-5 px-sm-5">
+<div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-      <h2>商品編集</h2>
-        <%= form_with model: @item, url:admin_item_path, local:true do |f| %>
-        <p>商品画像</p>
-        <%= f.attachment_field :image %>
-        <p>商品名</p>
-        <%= f.text_field :name %>
-        <p>商品説明</p>
-        <%= f.text_area :introduction %>
-        <p>ジャンル</p>
-        <%= f.collection_select :genre_id, @genres, :id, :name, {:include_blank => true} %>
-        <p>税抜価格</p>
-        <%= f.text_field :price %>円
-        <p>販売ステータス</p>
-        <%= f.submit '変更を保存', class:"btn btn-success" %>
+    <div class="admin-item-edit">
+      <div class="title">
+        <p>商品編集</p>
+      </div>
+    <%= form_with model: @item, url:admin_item_path, local:true do |f| %>
+    <div class="amdin-item-show-contents">
+      <div>
+        <tr>
+          <th>商品画像</th>
+          <td>&emsp;&emsp;&emsp;&emsp;<%= f.attachment_field :image %></td>
+        </tr>
+      </div>
+      <div>
+        <table>
+        <tr>
+          <th>商品名</th>
+          <td>&emsp;<%= f.text_field :name %></td>
+        </tr>
+        <tr>
+          <th>商品説明</th>
+          <td>&emsp;<%= f.text_area :introduction %></td>
+        </tr>
+        <tr>
+          <th>ジャンル</th>
+          <td>&emsp;<%= f.collection_select :genre_id, @genres, :id, :name, {:include_blank => true} %></td>
+        </tr>
+        <tr>
+          <th>税抜価格</th>
+          <td>&emsp;<%= f.text_field :price %>円</td>
+        </tr>
+        <tr>
+          <th>販売ステータス</th>
+          <td>
+            &emsp;<%= f.radio_button :is_active, true, checked: "checked" %>販売中&emsp;
+            <%= f.radio_button :is_active, false, checked: "checked" %>販売停止中
+          </td>
+        </tr>
+        </table>
+        <%= f.submit"変更を保存", class:"btn btn-sm btn-success" %>
         <% end %>
-        <p></p>
-        <p></p>
+      </div>
+    </div>
     </div>
   </div>
 </div>

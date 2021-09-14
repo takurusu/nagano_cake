@@ -4,7 +4,9 @@
       <p>ジャンル検索</p>
     </div>
     <% genres.each do |genre| %>
-      <p><%= genre.name %></p>
+      <%= link_to items_path do %>
+        <p><%= genre.name %></p>
+      <% end %>
     <% end %>
   </div>
 </div>

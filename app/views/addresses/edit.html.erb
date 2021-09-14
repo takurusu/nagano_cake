@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="address-edit">
+    <div class="address-edit col-md-12">
       <div class="title">
         <p>配送先編集</p>
       </div>
@@ -8,8 +8,7 @@
         <%= form_with model: @address, url:address_path, local: true do |f| %>
         <p>郵便番号<%= f.text_field :postal_code %></p>
         <p>住所<%= f.text_field :address %></p>
-        <p>宛名<%= f.text_field :name %></p>
-        <p><%= f.submit "変更内容を保存", class:"btn btn-sm btn-success" %></p>
+        <p>宛名<%= f.text_field :name %><%= f.submit "変更内容を保存", class:"btn btn-sm btn-success address-edit-submit" %></p>
         <% end %>
       </div>
     </div>

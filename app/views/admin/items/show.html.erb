@@ -1,23 +1,43 @@
-<div class="container px-5 px-sm-5">
+<div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-      <h2>商品詳細</h2>
-      <div class="item-image">
+    <div class="admin-item-show col-md-12">
+      <div class="title">
+        <p>商品詳細</p>
       </div>
-      <thread>
-        <p><%= attachment_image_tag @item, :image_id, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %></p>
-        <p>商品名</p>
-        <%= @item.name %>
-        <p>商品説明</p>
-        <%= @item.introduction %>
-        <p>ジャンル</p>
-        <%= @item.genre.name %>
-        <p>税込価格（税抜価格)</p>
-        <%= @item.price %>
-        <p>販売ステータス</p>
-        <%= @item.is_active %>
-        <%= link_to "編集する", edit_admin_item_path ,class:"btn btn-success" %>
-      </thread>
+    <div class="amdin-item-show-contents">
+      <div>
+        <%= attachment_image_tag @item, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+      </div>
+      <div>
+        <table>
+        <tr>
+          <th>商品名</th>
+          <td>&emsp;<%= @item.name %></td>
+        </tr>
+        <tr>
+          <th>商品説明</th>
+          <td>&emsp;<%= @item.introduction %></td>
+        </tr>
+        <tr>
+          <th>ジャンル</th>
+          <td>&emsp;<%= @item.genre.name %></td>
+        </tr>
+        <tr>
+          <th>税込価格（税抜価格）</th>
+          <td>&emsp;<%= converting_to_jpy(@item.with_tax_price) %> (<%= converting_to_jpy(@item.price) %>) 円</td>
+        </tr>
+        <tr>
+          <th>販売ステータス</th>
+          <td>
+            &emsp;<%= @item.is_active %>
+          </td>
+        </tr>
+        </table>
+        <div class="link">
+          &emsp;&emsp;<%= link_to "編集する", edit_admin_item_path ,class:"btn btn-sm btn-success" %>
+        </div>
+      </div>
+    </div>
     </div>
   </div>
 </div>

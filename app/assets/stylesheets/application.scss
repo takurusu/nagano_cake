@@ -17,6 +17,13 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+
+.signed-in-message {
+  color: white;
+  margin-right: 50px;
+  margin-top: 10px;
+}
+
 /*top page*/
 
 .genre-index {
@@ -55,16 +62,50 @@
   margin-top: 10px;
 }
 
+.items > h4 {
+  font-weight: bold;
+}
+
 .new-items {
   display: flex;
 }
 
+.new-items > div {
+  width: 25%;
+}
+
+.all-items-link {
+  float: right;
+}
+
+/*About*/
+
+.About {
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-weight: bold;
+}
+/*customer-sign-up*/
+
+.actions {
+  padding-bottom: 10px;
+}
+
+.customer-sign-up {
+  margin-top: 50px;
+}
 /*items-index*/
 
 .items-index {
   display: flex;
   flex-wrap: wrap;
   font-size: 10px;
+}
+
+.items-index > div {
+  width: 25%;
 }
 
 .items-box {
@@ -130,6 +171,13 @@
   font-weight: bold;
 }
 
+/*customer-complete*/
+
+.complete {
+  margin: auto;
+  text-align: center;
+  padding-top: 100px;
+}
 /*orders-new*/
 
 .orders-new {
@@ -146,7 +194,6 @@
 .orders-confirm {
   margin-top: 50px;
 }
-
 
 /*orders-show*/
 
@@ -167,6 +214,31 @@
 .table-orders-1 {
   padding-right: 10px;
 }
+
+/*address-index*/
+
+.addresses-index {
+  padding-top: 50px;
+}
+
+.address-create {
+  margin-bottom: 20px;
+}
+
+.address-new {
+  float: right;
+}
+
+/*address-edit*/
+
+.address-edit {
+  padding-top: 50px;
+}
+
+.address-edit-submit {
+  float: right;
+}
+
 /*admin*/
 /*admin-sign-in*/
 
@@ -190,4 +262,79 @@
 
 .orders-index {
   padding-top: 50px;
+}
+
+/*admin-item-index*/
+
+.admin-items-index {
+  padding-top: 50px;
+}
+
+/*admin-item-new*/
+
+.admin-item-new {
+  padding-top: 50px;
+}
+
+.actions {
+  padding-top: 20px;
+  margin-left: 180px;
+}
+
+/*admin-item-show*/
+
+.admin-item-show {
+  padding-top: 50px;
+}
+
+.admin-item-show-contents {
+  display: flex;
+}
+
+.link {
+  padding-top: 20px;
+}
+
+/*admin-item-edit*/
+
+.admin-item-edit {
+  padding-top: 50px;
+}
+
+/*admin-genres-index*/
+
+.admin-genres-index {
+  padding-top: 50px;
+}
+
+.create-genre {
+  padding-bottom: 30px;
+  font-weight: bold;
+}
+
+/*admin-genre-edit*/
+
+.admin-genre-edit {
+  padding-top: 50px;
+}
+
+.admin-genre-edit-form {
+  padding-top: 50px;
+  font-weight: bold;
+}
+
+/*admin-customers-index*/
+
+.admin-customers-index {
+  padding-top: 50px;
+}
+
+/*admin-customer-show*/
+
+.admin-customer-show {
+  padding-top: 50px;
+}
+
+.links {
+  padding-top: 20px;
 }

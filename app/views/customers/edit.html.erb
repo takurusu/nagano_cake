@@ -4,7 +4,7 @@
     <div class="title">
       <p>会員情報編集</p>
     </div>
-      <table class="row">
+      <table>
         <%= form_with model: @customer, url:customer_path, local:true do |f| %>
         <tbody>
           <tr>
@@ -35,8 +35,8 @@
         </tbody>
       </table>
       <div class="mypage-link">
-        <p><%= f.submit "編集内容を保存", class:"btn btn-sm btn-success" %></p>
-        <p><%= link_to "退会する", customers_unsubscribe_path, class:"btn btn-sm btn-danger" %></p>
+        <%= f.submit "編集内容を保存", class:"btn btn-sm btn-success" %>&emsp;&emsp;&emsp;&emsp;&emsp;
+        <%= link_to "退会する", customers_unsubscribe_path, class:"btn btn-sm btn-danger" %>
         <% end %>
       </div>
     </div>

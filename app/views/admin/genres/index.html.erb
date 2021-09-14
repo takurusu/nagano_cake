@@ -1,27 +1,25 @@
-<div class="container px-5 px-sm-5">
+<div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-      <div class="genres-index">
-        <h2>ジャンル一覧・追加</h2>
-        <table class="table table-stripped">
-          <div class="create-genre">
-            <%= form_with model: @genre, url:admin_genres_path, local:true do |f| %>
-              <p>ジャンル名</p>
-              <%= f.text_field :name %>
-              <%= f.submit '新規登録', data: {"turbolinks" => false} %>
-            <% end %>
-          </div>
-          <thread>ジャンル</thread>
-          <tbody>
-            <% @genres.each do |genre| %>
-              <tr>
-                <td><%= genre.name %></td>
-                <td><%= link_to "編集する", edit_admin_genre_path(genre.id) %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
+    <div class="admin-genres-index">
+      <div class="title">
+        <p>ジャンル一覧・追加</p>
       </div>
+      <div class="create-genre">
+        <%= form_with model: @genre, url:admin_genres_path, local:true do |f| %>
+          <%= f.label "ジャンル名" %>&emsp;
+          <%= f.text_field :name %>&emsp;
+          <%= f.submit '新規登録', class:"btn btn-sm btn-success", data: {"turbolinks" => false} %>
+        <% end %>
+      </div>
+      <table class="table table-stripped">
+        <thread>ジャンル</thread>
+        <tbody>
+          <% @genres.each do |genre| %>
+          <tr>
+            <td><%= genre.name %></td>
+            <td><%= link_to "編集する", edit_admin_genre_path(genre.id), class:"btn btn-sm btn-success" %></td>
+          </tr>
+          <% end %>
     </div>
   </div>
 </div>

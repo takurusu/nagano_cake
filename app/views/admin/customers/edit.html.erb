@@ -1,20 +1,49 @@
 <div class="container">
   <div class="row">
+    <div class="admin-customer-show col-md-12">
     <div class="title">
-      <p><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</p>
+      <p><%= @customer.full_name %>さんの会員紹介</p>
     </div>
-    <div class="customer-contents">
-      <p>会員ID<%= @customer.id %></p>
-    <%= form_with model: @customer, url:admin_customer_path, local:true do |f| %>
-      <p>氏名<%= f.text_field :last_name %><%= f.text_field :first_name %></p>
-      <p>フリガナ<%= f.text_field :last_name_kana %><%= f.text_field :first_name_kana %></p>
-      <p>郵便番号<%= f.text_field :postal_code %></p>
-      <p>住所<%= f.text_field :address %></p>
-      <p>電話番号<%= f.text_field :telephone_number %></p>
-      <p>メールアドレス<%= f.text_field :email %></p>
-      <p>会員ステータス<%= f.text_field :is_active %></p>
-      <p><%= f.submit '変更を保存', class:"btn btn-success", data: {"turbolinks" => false} %></p>
-    <% end %>
+      <table>
+        <tbody>
+        <%= form_with model: @customer, url:admin_customer_path, local:true do |f| %>
+          <tr>
+            <th>氏名</th>
+            <td>&emsp;<%= f.text_field :last_name %><%= f.text_field :first_name %></td>
+          </tr>
+          <tr>
+            <th>カナ</th>
+            <td>&emsp;<%= f.text_field :last_name_kana %><%= f.text_field :first_name_kana %></td>
+          </tr>
+          <tr>
+            <th>郵便番号</th>
+            <td>&emsp;<%= f.text_field :postal_code %></td>
+          </tr>
+          <tr>
+            <th>住所</th>
+            <td>&emsp;<%= f.text_field :address %></td>
+          </tr>
+          <tr>
+            <th>電話番号</th>
+            <td>&emsp;<%= f.text_field :telephone_number %></td>
+          </tr>
+          <tr>
+            <th>メールアドレス</th>
+            <td>&emsp;<%= f.text_field :email %></td>
+            </td>
+          </tr>
+          <tr>
+            <th>会員ステータス</th>
+            <td>
+              &emsp;<%= f.radio_button :is_active, false, checked: "checked" %>有効&emsp;
+              <%= f.radio_button :is_active, true, checked: "checked" %>退会</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="actions">
+        <%= f.submit "変更を保存", class:"btn btn-sm btn-success" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

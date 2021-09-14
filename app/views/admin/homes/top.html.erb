@@ -1,27 +1,29 @@
 <div class="container">
   <div class="row">
-    <div class="orders-index">
-    <div class="title">
-      <p>注文履歴一覧</p>
-    </div>
-    <table class="table table-stripped">
-      <thread>
-        <th>購入日時</th>
-        <th>購入者</th>
-        <th>注文個数</th>
-        <th>注文ステータス</th>
-      </thread>
-      <tbody>
-        <% @orders.each do |order| %>
-          <tr>
-            <td><%= link_to order.created_at, admin_order_path(order.id) %></td>
-            <td><%= order.customer.full_name %></td>
-            <td><%= order.postage %></td>
-            <td><%= order.status %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <div class="col-sm-12 col-md-12 col-lg-12 px-5 px-sm-0">
+      <div class="orders-index">
+        <div class="title">
+          <p>注文履歴一覧</p>
+        </div>
+        <table class="table table-stripped">
+          <thread>
+            <th>購入日時</th>
+            <th>購入者</th>
+            <th>注文個数</th>
+            <th>注文ステータス</th>
+          </thread>
+          <tbody>
+          <% @orders.each do |order| %>
+            <tr>
+              <td><%= link_to order.created_at.to_s(:datetime_jp), admin_order_path(order.id) %></td>
+              <td><%= order.customer.full_name %></td>
+              <td><%= order.postage %></td>
+              <td><%= order.status %></td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>

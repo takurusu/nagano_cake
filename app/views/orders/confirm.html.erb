@@ -16,9 +16,9 @@
           <tr>
             <td><%= attachment_image_tag cart_item.item, :image_id, :fill, 20, 20, format: 'jpeg', fallback: "no_image.jpg" %>
                 <%= cart_item.item.name %></td>
-            <td><%= cart_item.item.with_tax_price %></td>
+            <td><%= converting_to_jpy(cart_item.item.with_tax_price) %></td>
             <td><%= cart_item.amount %></td>
-            <td><%= cart_item.subtotal %></td>
+            <td><%= converting_to_jpy(cart_item.subtotal) %></td>
           </tr>
           <% end %>
       </table>
@@ -29,15 +29,15 @@
           </tr>
           <tr>
             <th>商品合計</th>
-            <td><%= @total_price %></td>
+            <td><%= converting_to_jpy(@total_price) %></td>
           </tr>
           <tr>
             <th>請求金額</th>
-            <td><%= @total_price+@order.postage %></td>
+            <td><%= converting_to_jpy(@total_price+@order.postage) %></td>
           </tr>
       </table>
-      <p>支払方法&emsp;<%= @order.payment_method_i18n %></p>
-      <p>お届け先&emsp;〒<%= @order.postal_code %>&emsp;<%= @order.address %>&emsp;<%= @order.name %></p>
+      <p><strong>支払方法</strong>&emsp;<%= @order.payment_method_i18n %></p>
+      <p><strong>お届け先</strong>&emsp;〒<%= @order.postal_code %>&emsp;<%= @order.address %>&emsp;<%= @order.name %></p>
       <%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
 　　　  <%= f.hidden_field :payment_method, :value => @order.payment_method %>
 　　　  <%= f.hidden_field :address, :value => @order.address %>

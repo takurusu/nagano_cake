@@ -4,3 +4,22 @@ ja:
       payment_method:
         credit_card: 'クレジットカード'
         transfer: '銀行振込'
+
+
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
+
+
+  views:
+    pagination:
+      first: "≪"
+      previous: "<"
+      next: "Next>"
+      last: "Last≫"
+
+
+  item:
+    is_active:
+      false: '販売停止中'
+      true: '販売中'

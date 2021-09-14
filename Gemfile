@@ -76,3 +76,5 @@ gem "binding_of_caller"
 gem "enum_help"
 
 gem 'pry-byebug', group: :development
+
+gem 'kaminari','~> 1.2.1'

@@ -3,7 +3,7 @@
     <%= render 'homes/list', genres: @genres %>
     <div class="col-md-8 offset-md-1">
       <div class="item">
-        <p><%= attachment_image_tag @item, :image_id, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %></p>
+        <p><%= attachment_image_tag @item, :image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %></p>
         <p><strong><%= @item.name %></strong></p>
         <p><%= @item.introduction %></p>
         <p><strong>¥<%= converting_to_jpy((@item.price*1.08).to_i) %></strong>(税込)</p>

@@ -78,3 +78,5 @@ gem "enum_help"
 gem 'pry-byebug', group: :development
 
 gem 'kaminari','~> 1.2.1'
+
+gem 'rails-i18n', '~> 5.1'

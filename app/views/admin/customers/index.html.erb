@@ -19,7 +19,7 @@
                   <%= customer.last_name %><%= customer.first_name %>
                 <% end %></td>
             <td><%= customer.email %></td>
-            <td><%= customer.is_active %></td>
+            <td><%= customer.is_active ? '退会' : '有効' %></td>
           </tr>
         <% end %>
       </tbody>

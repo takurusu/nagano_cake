@@ -5,6 +5,16 @@ class Admin::OrdersController < ApplicationController
     @order_items = @order.order_items.all
   end
 
+  def update
+    @order = Order.find(params[:id])
+    @order_items = @order.order_items.all
+    @order.update(order_params)
+    if @order.status == "after_payment"
+       @order_items.update(make_status: 1)
+    end
+    redirect_to admin_order_path
+  end
+
   private
 
     def order_item_params

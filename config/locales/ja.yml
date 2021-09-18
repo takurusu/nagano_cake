@@ -2,24 +2,35 @@ ja:
   enums:
     order:
       payment_method:
-        credit_card: 'クレジットカード'
-        transfer: '銀行振込'
+        '---': "---"
+        credit_card: "クレジットカード"
+        transfer: "銀行振込"
 
+      status:
+        '---': "---"
+        before_payment: "入金待ち"
+        after_payment: "入金確認"
+        making: "製作中"
+        before_sending: "発送準備中"
+        after_sending: "発送済み"
+
+    order_item:
+      make_status:
+        '---': "---"
+        impossible: "着手不可"
+        waiting: "製造待ち"
+        making: "製造中"
+        finish: "製造完了"
 
   time:
     formats:
+      '---': "---"
       default: "%Y/%m/%d %H:%M:%S"
-
 
   views:
     pagination:
+      '---': "---"
       first: "≪"
       previous: "<"
       next: "Next>"
       last: "Last≫"
-
-
-  item:
-    is_active:
-      false: '販売停止中'
-      true: '販売中'

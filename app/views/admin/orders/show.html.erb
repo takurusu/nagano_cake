@@ -23,8 +23,13 @@
           <td>&emsp;<%= @order.payment_method_i18n %></td>
         </tr>
         <tr>
+          <%= form_with model: @order, url:admin_order_path, local:true do |f| %>
           <th>注文ステータス</th>
-          <td>&emsp;<%= @order.status %></td>
+          <td>&emsp;
+            <%= f.select :status, Order.statuses.keys.map {|k| [I18n.t("enums.order.status.#{k}"), k]} %>
+            <%= f.submit "更新", class:"btn btn-sm btn-success" %>
+          </td>
+          <% end %>
         </tr>
       </table>
       </div>
@@ -36,13 +41,18 @@
           <th>小計</th>
           <th>製作ステータス</th>
         </tr>
-        <% @order_items.each do |order_item| %>
+        <% @order.order_items.each do |order_item| %>
         <tr>
           <td><%= order_item.item.name %></td>
-          <td><%= order_item.unit_price %></td>
+          <td><%= converting_to_jpy(order_item.unit_price) %></td>
           <td><%= order_item.amount %></td>
-          <td><%= order_item.unit_price*order_item.amount %></td>
-          <td><%= order_item.make_status %></td>
+          <td><%= converting_to_jpy(order_item.unit_price*order_item.amount) %></td>
+          <%= form_with model: order_item, url:admin_order_path, local:true do |f| %>
+          <td>
+            <%= f.select :make_status, OrderItem.make_statuses.keys.map {|k| [I18n.t("enums.order_item.make_status.#{k}"), k]} %>
+            <%= f.submit "更新", class:"btn btn-sm btn-success" %>
+          </td>
+          <% end %>
         </tr>
         <% end %>
       </table>
